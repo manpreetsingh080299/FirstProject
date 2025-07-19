@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Signup</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 300px;
+}
+form h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover {
+  background: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<form id="studentForm">
+  <h2>Student Signup</h2>
+  <input type="text" id="fname" placeholder=" First Name" required>
+  <input type="text" id="lname" placeholder="Last Name" required>
+  <input type="number" id="roll" placeholder="Roll Number" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+  <button type="submit">Sign Up</button>
+</form>
+
+<script>
+// document.getElementById('studentForm').addEventListener('submit', function(e) {
+//     e.preventDefault();
+ document.getElementById('studentForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+    // const name = document.getElementById('name').value.trim();
+    // const roll = document.getElementById('roll').value.trim();
+                const fname = document.getElementById('fname').value.trim();
+                const lname = document.getElementById('lname').value.trim();
+                const roll = document.getElementById('roll').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('tel').value.trim();
+
+    if (!fname || !roll) {
+        alert('Please fill all fields');
+        return;
+    }
+
+    // let students = JSON.parse(localStorage.getItem('students')) || [];
+     let students = JSON.parse(localStorage.getItem('students')) || [];
+
+    // students.push({ name, roll });
+        students.push({ fname, lname, roll, email, phone });
+
+    // localStorage.setItem('students', JSON.stringify(students));
+    localStorage.setItem('students', JSON.stringify(students));
+
+
+    alert('Student welcome!');
+    window.location.href = 'home.html'; // Go to home page
+});
+</script>
+
+</body>
+</html>

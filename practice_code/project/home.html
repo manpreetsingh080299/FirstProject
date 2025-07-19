@@ -1,0 +1,108 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  padding: 20px;
+}
+h2 {
+  text-align: center;
+}
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 60%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+th {
+  background: #007bff;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>Registered Students</h2>
+
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Roll Number</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody id="studentsTable"></tbody>
+</table>
+
+<script>
+const students = JSON.parse(localStorage.getItem('students')) || [];
+
+const tbody = document.getElementById('studentsTable');
+tbody.innerHTML = '';
+
+if (students.length === 0){
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    cell.colSpan = 8;
+    cell.textContent = 'No students registered.';
+    row.appendChild(cell);
+    tbody.appendChild(row);
+} else {
+    students.forEach((student, index) => {
+        const row = document.createElement('tr');
+
+        const cell1 = document.createElement('td');
+        cell1.textContent = index + 1;
+
+        const cell2 = document.createElement('td');
+        cell2.textContent = student.name;
+
+        const cell3 = document.createElement('td');
+        cell3.textContent = student.roll;
+
+        const cell4 = document.createElement('td');
+        const delBtn = document.createElement('delete')
+        cell4.textContent = "✖";
+    
+        delBtn.addEventListener('click', function(){
+          deleteSudent(index);
+        });
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        cell4.appendChild(delBtn);
+        row.appendChild(cell4);
+
+
+        tbody.appendChild(row);
+    });
+  }
+    function deleteStudent(index){
+      if(confirm("Do want to delete ? ")){
+        students.splice(index, 1);
+        localStorage.setItem('students', JSON.stringify(students));
+      }
+    }
+  
+</script>
+
+</body>
+</html>
+
+</script>
+
+</body>
+</html>

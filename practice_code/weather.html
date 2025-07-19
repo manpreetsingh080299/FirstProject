@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecasting</title>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+  <h1>Today's Weather</h1>
+  <p id="weather">Loading...</p>
+
+  <script>
+  // <!--  const apiKey = "reset_password.txt";
+  //   const city = "Slough,GB";
+  //   // ===== RANDOM JOKE (as Weather) =====
+  //   fetch('https://official-joke-api.appspot.com/random_joke')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const joke = `${data.setup} — ${data.punchline}`;
+  //       document.getElementById('weather').textContent = joke;
+  //     })
+  //     .catch(err => {
+  //       document.getElementById('weather').textContent = 'Could not fetch data';
+  //       console.error(err);
+  //     });
+  //   const xhr = new XMLHttpRequest();
+  //   xhr.open('POST', 'https://httpbin.org/post', true);
+  //   xhr.setRequestHeader('Content-Type', 'application/json');
+
+  //   xhr.onreadystatechange = function () {
+  //     if (xhr.readyState === 4) {  // Request finished and response is ready
+  //       if (xhr.status >= 200 && xhr.status < 300) {
+  //         // Parse the JSON response from server
+  //         const response = JSON.parse(xhr.responseText);
+
+  //         // Now you can access properties of 'response'
+  //         console.log('Success:', response);
+
+  //         // Display a success message on page
+  //         document.getElementById('response').textContent = response.message || 'Signup successful!';
+  //         document.getElementById('response').classList.add('text-success');
+  //       } else {
+  //         // Handle errors (like 400 or 500 status codes)
+  //         console.error('Error:', xhr.status, xhr.statusText);
+  //         document.getElementById('response').textContent = 'Signup failed. Please try again.';
+  //         document.getElementById('response').classList.add('text-danger');
+  //       }
+  //     }
+  //   };
+
+  //   const data = JSON.stringify({ name, email, password });
+  //   xhr.send(data); 
+
+    const apiKey ="abcd1234efgh5678ijkl9012mnop3456";
+const city = "London,GB";
+
+axios.get(`https://samples.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+  .then(response => {
+    const weather = response.data;
+    const desc = weather.weather[0].description;
+    const temp = weather.main.temp;
+    document.getElementById('weather').textContent = `In ${city}: ${temp}°C, ${desc}`;
+  })
+  .catch(error => {
+    document.getElementById('weather').textContent = 'Could not fetch weather data.';
+    console.error(error);
+  });
+
+  </script>
+
+</body>
+
+</html>
