@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Simple Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/api/axios.min.js"></script>
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    body{
+        background-color: aliceblue;
+        font-family: Arial, sans-serif;
+        text-align: center;
+
+    }
+
+    header{
+        background-color: rgb(110, 236, 110);
+        padding: 20px;
+        color: white;
+        font-weight: bold;
+    }
+    h1, p{
+        margin: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
+    }
+    nav a{
+        text-decoration: none;
+        color: white;
+    }
+    nav a:hover{
+        text-decoration: underline;
+    }
+    main{
+        padding: 30px;
+        background-color: rgb(241, 226, 197);
+        
+    }
+    #about{
+        max-width: 100%;
+        color: rgb(20, 20, 20);
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        
+    }
+
+    #signup{
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 2px 2px 8px;
+        }
+
+        form{
+        display: block;
+        margin-left: 30%;
+        margin-right: 30%;
+        border: 2px solid #361616;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 1px 1px 2px;
+        text-align: left;
+        }
+
+        input{
+        width: 90%;
+        height: 30px;
+        border-radius: 5px;
+        border-color: rgb(241, 226, 197);
+        
+        
+        }
+        label {
+            text-align: left;
+        }
+
+button{
+        background-color: rgb(110, 236, 110);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: rgb(80, 200, 80);
+    }
+
+    footer{
+        background-color: rgb(110, 236, 110);
+        padding: 20px;
+        color: white;
+        position: relative;
+        bottom: 0;
+        /* width: 100%; */
+    }
+
+</style>
+
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Page</h1>
+        <p>This is a simple webpage demonstrating tags, structure, and a form.</p>
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I’m learning HTML and building awesome webpages.</p>
+            <img src="https://via.placeholder.com/200" alt="Placeholder image">
+        </section>
+
+        <section id="signup">  
+            <h2 class=" fw-bold mb-3" style="margin: 20px;">Sign Up Form</h2>
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"  class="form-control" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" class="form-control" required><br><br>
+
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" class="form-control" required><br><br>
+
+                <label style="display: inline-flex;  margin-bottom: 10px; font-weight: bold;">
+                    <input type="checkbox" name="newsletter" class="form-control"> Subscribe to newsletter</label>
+                <br><br>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Simple Page</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Testing</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+    <h1>Today's Weather </h1>
+    <p id="weather">Loading.....</p>
+    <script>
+const apiKey = "b6907d289e10d714a6e88b30761fae22";
+const city = "London,GB";
+
+axios.get(`https://official-joke-api.appspot.com/random_joke`)
+  .then(response => {
+    const joke_weather = response.data;
+    const text = `${joke_weather.setup} - ${joke_weather.punchline}`; 
+    // const desc = weather.weather[0].description;
+    // const temp = weather.main.temp;
+    document.getElementById('weather').textContent = text;
+  })
+  .catch(error => {
+    document.getElementById('weather').textContent = 'Could not fetch weather data.';
+    console.error(error);
+  });
+
+    </script>
+
+</body>
+</html>
