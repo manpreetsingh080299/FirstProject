@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page</title>
+</head>
+<body>
+<h2>Home Page</h2>
+
+<div id="userInfo"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Left</div>
+    <div class="col-md-6">Right</div>
+  </div>
+</div>
+
+
+<script>
+// Get user details from localStorage
+const name = localStorage.getItem("name");
+const email = localStorage.getItem("email");
+
+const userInfoDiv = document.getElementById("userInfo");
+
+if (name && email) {
+    userInfoDiv.innerHTML = `
+        <p>Welcome, <strong>${name}</strong>!</p>
+        <p>Your email: <strong>${email}</strong></p>
+    `;
+} else {
+    userInfoDiv.innerHTML = `
+        <p>No signup details found. Please <a href="signup.html">Sign up</a>.</p>
+    `;
+}
+</script>
+</body> 
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX </title>
+    <link rel="stylesheet" href="/practice_code/my project/package.json">
+</head>
+<body>
+    <h2 id="titel">JSON from XHR</h2>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.onload = function(){
+            console.log(this);
+        };
+        xhr.open('get','package.json');
+        xhr.send();
+
+    </script>
+</body>
+</html>
